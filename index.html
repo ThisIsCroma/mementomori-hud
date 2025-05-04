@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario RPG WebApp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>MEMENTO MORI 2: HUD</h1>
+  <div class="container">
+
+    <div class="char-info">
+      <label>Nombre del PJ:</label>
+      <input type="text" id="charName" placeholder="Ej: Valdrak el Rojo" />
+
+      <label>Causa de Muerte:</label>
+      <input type="text" id="charDeath" placeholder="Ej: Aplastado por un gólem" />
+      <label>Experiencia:</label>
+      <input type="number" id="charXP" placeholder="Ej: 3500" />
+
+      <label>Salud:</label>
+      <div class="checkbox-row" id="charHealth"></div>
+      <label>Energía:</label>
+      <div class="checkbox-row" id="charEnergy"></div>
+
+      <label>Foto del Personaje:</label>
+      <input type="file" id="charPhotoInput" accept="image/*" />
+      <div class="char-photo-preview">
+        <img id="charPhoto" src="" alt="Foto del personaje" />
+      </div>
+    </div>
+    <input id="itemName" type="text" placeholder="Nombre del ítem" />
+    <select id="itemType">
+      <option value="cabeza">Cabeza</option>
+      <option value="pecho">Pecho</option>
+      <option value="piernas">Piernas</option>
+      <option value="arma">Arma</option>
+      <option value="objeto">Objeto</option>
+    </select>
+    <input id="itemQty" type="number" min="1" placeholder="Cantidad" value="1" />
+    <input type="file" id="itemIcon" accept="image/*" />
+    <button onclick="agregarItem()">Agregar ítem</button>
+
+    <h2>Equipamiento</h2>
+    <div class="slots">
+      <div class="slot" id="slot-cabeza">Cabeza: <span>-</span></div>
+      <div class="slot" id="slot-pecho">Pecho: <span>-</span></div>
+      <div class="slot" id="slot-piernas">Piernas: <span>-</span></div>
+      <div class="slot" id="slot-arma1">Arma Principal: <span>-</span></div>
+      <div class="slot" id="slot-arma2">Arma Secundaria: <span>-</span></div>
+    </div>
+
+    <h2>Inventario</h2>
+    <div class="inventory-grid" id="listaItems"></div>
+  </div>
+  <div style="text-align:center; margin-top:20px;"><button onclick="crearNota()">📝 Nueva Nota</button></div>
+  <script src="script.js"></script>
+</body>
+</html>
