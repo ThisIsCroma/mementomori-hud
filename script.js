@@ -473,3 +473,37 @@ function cargarNotas() {
 window.addEventListener("DOMContentLoaded", () => {
   cargarNotas();
 });
+
+function exportarInventario() {
+  const data = {
+    personaje: {
+      nombre: charName.value,
+      muerte: charDeath.value,
+      xp: charXP.value,
+      foto: charPhoto.src,
+      salud: Array.from(document.getElementById("charHealth").querySelectorAll("input")).map(cb => cb.checked),
+      energia: Array.from(document.getElementById("charEnergy").querySelectorAll("input")).map(cb => cb.checked)
+    },
+    inventario: {
+      items,
+      slots
+    },
+    notas: JSON.parse(localStorage.getItem("notas_jugador") || "[]")
+  };
+
+  try {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "inventario_completo.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert("❌ Error al exportar inventario.");
+    console.error(err);
+  }
+}

@@ -162,3 +162,23 @@ input, select, button {
   padding: 6px;
   font-size: 0.95em;
 }
+
+#btnExportarFlotante {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  font-size: 1.6em;
+  background: #44c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 9999;
+  transition: background 0.3s;
+}
+#btnExportarFlotante:hover {
+  background: #66f;
+}

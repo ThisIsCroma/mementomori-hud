@@ -53,8 +53,16 @@
 
     <h2>Inventario</h2>
     <div class="inventory-grid" id="listaItems"></div>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button onclick="exportarInventario()">📤 Exportar Inventario</button>
+      <input type="file" id="importInput" accept=".json" style="display:none" onchange="importarInventario(event)" />
+      <button onclick="document.getElementById('importInput').click()">📥 Importar Inventario</button>
+    </div>
   </div>
+
   <div style="text-align:center; margin-top:20px;"><button onclick="crearNota()">📝 Nueva Nota</button></div>
+  <button id="btnExportarFlotante" onclick="exportarInventario()" title="Exportar inventario completo">💾</button>
   <script src="script.js"></script>
 </body>
 </html>
